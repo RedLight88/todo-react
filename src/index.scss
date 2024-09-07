@@ -1,0 +1,58 @@
+body {
+  background-color: rgba(0, 0, 0, 0.825);
+}
+
+.to-do-list {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: 4rem;
+    color: white;
+  }
+  button {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 2rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  .add-btn {
+    background-color: rgb(135, 249, 135);
+    border-radius: 0.5rem;
+    padding: 10px;
+    transition: background-color 0.5s ease;
+  }
+  .add-btn:hover {
+    background-color: rgb(20, 215, 20);
+  }
+
+  input {
+    font-size: 1.5rem;
+    border: 2px solid rgb(0, 0, 0);
+  }
+}
+
+ol {
+  padding: 0;
+
+  input {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+  }
+  li {
+    display: flex;
+    align-items: center;
+  }
+}
+
+li {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
