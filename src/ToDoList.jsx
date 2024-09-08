@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function ToDoList() {
-  const [tasks, setTasks] = useState([
-    { task: 'walk the dog', completed: false },
-  ]);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem('tasks');
+    return savedTasks
+      ? JSON.parse(savedTasks)
+      : [{ task: 'walk the dog', completed: false }];
+  });
+
   const [newTask, setNewTask] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
   function handleInputChange(event) {
     setNewTask(event.target.value);
@@ -58,6 +66,7 @@ function ToDoList() {
                 className="text"
                 style={{
                   textDecoration: task.completed ? 'line-through' : 'none',
+                  ...(task.completed && { color: 'gray' }),
                 }}
               >
                 {task.task}
